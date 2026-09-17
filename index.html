@@ -3,78 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASF Checklist — Checklist pré-surf</title>
-<meta name="description" content="Checklist pré-surf: equipamento, condições e segurança. Não esqueça nada antes de entrar no mar. Satélite do app ASF.">
+<title>ASF Checklist — Mochila de surf sem esquecer nada</title>
+<meta name="description" content="Checklist interativo da mochila de surf: prancha, leash, protetor, água e mais. Personalize e salve no navegador. Satélite do app ASF.">
 <style>
 :root{--rosa:#ff4d8d;--roxo:#7b2ff7;--areia:#fff5ec;--mar:#00c2cb}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
-body{background:linear-gradient(160deg,#fff5ec,#ffe3f1 60%,#e0f7fa);min-height:100vh;color:#333}
-header{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;padding:2rem 1rem;text-align:center}
+body{background:linear-gradient(160deg,#fff5ec,#e0f2f1 60%,#e0f7fa);min-height:100vh;color:#333}
+header{background:linear-gradient(90deg,#00838f,#26a69a);color:#fff;padding:2rem 1rem;text-align:center}
 header h1{font-size:2rem}header p{opacity:.9;margin-top:.4rem}
 nav{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;padding:.8rem;background:#fff;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
 nav a{background:var(--areia);border:1px solid #ffd3e6;color:#c2185b;padding:.3rem .7rem;border-radius:20px;font-size:.78rem;text-decoration:none}
 nav a:hover{background:var(--rosa);color:#fff}
 main{max-width:640px;margin:1.5rem auto;padding:0 1rem}
 .card{background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px #7b2ff720;margin-bottom:1.2rem}
-.card h2{color:var(--roxo);margin-bottom:.6rem;font-size:1.2rem}
-label{display:flex;gap:.6rem;align-items:center;padding:.45rem 0;font-size:.98rem;cursor:pointer}
-input[type=checkbox]{accent-color:var(--rosa);width:20px;height:20px}
-.barra{height:12px;background:#eee;border-radius:6px;overflow:hidden;margin:.8rem 0}
-.barra div{height:100%;background:linear-gradient(90deg,var(--rosa),var(--roxo));transition:width .3s}
-#msg{text-align:center;font-weight:bold;color:var(--rosa);min-height:1.4rem}
-button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer}
+.card h2{color:#00838f;margin-bottom:.6rem;font-size:1.2rem}
+.prog{background:#eee;border-radius:999px;height:12px;overflow:hidden;margin:.5rem 0 1rem}
+.prog div{height:100%;background:linear-gradient(90deg,#26a69a,#00838f);transition:width .3s}
+label{display:flex;gap:.6rem;align-items:center;padding:.5rem .2rem;font-size:1rem;cursor:pointer;border-bottom:1px solid #f5f5f5}
+label input{accent-color:#00838f;width:18px;height:18px}
+label.ok{text-decoration:line-through;color:#aaa}
+.addrow{display:flex;gap:.5rem;margin-top:.8rem}
+.addrow input{flex:1;padding:.5rem;border:1px solid #ddd;border-radius:10px;font-size:1rem}
+button{background:linear-gradient(90deg,#00838f,#26a69a);color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer}
+button.sec{background:#fff;color:#00838f;border:2px solid #00838f;font-size:.85rem;padding:.5rem 1rem}
+.completo{background:#e8f5e9;border-radius:12px;padding:1rem;text-align:center;font-weight:bold;color:#2e7d32;display:none;margin-top:1rem}
 .xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
 footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 footer a{color:var(--rosa)}
 </style>
 </head>
 <body>
-<header><h1>✅ ASF Checklist</h1><p>Nunca mais esqueça nada antes de entrar no mar</p></header>
+<header><h1>🎒 ASF Checklist</h1><p>Nunca mais esqueça o leash em casa</p></header>
 <nav>
 <a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<a href="https://acarolmourad-commits.github.io/asf-equipamento/">Equipamento</a>
 <a href="https://acarolmourad-commits.github.io/asf-previsao/">Previsão</a>
 <a href="https://acarolmourad-commits.github.io/asf-mare/">Maré</a>
-<a href="https://acarolmourad-commits.github.io/asf-equipamento/">Equipamento</a>
-<a href="https://acarolmourad-commits.github.io/asf-seguranca/">Segurança</a>
-<a href="https://acarolmourad-commits.github.io/asf-sos/">SOS</a>
-<a href="https://acarolmourad-commits.github.io/asf-treino/">Treino</a>
+<a href="https://acarolmourad-commits.github.io/asf-mapa/">Mapa</a>
 <a href="https://acarolmourad-commits.github.io/asf-yoga/">Yoga</a>
 <a href="https://acarolmourad-commits.github.io/asf-diario/">Diário</a>
+<a href="https://acarolmourad-commits.github.io/asf-sos/">SOS</a>
 <a href="https://acarolmourad-commits.github.io/asf-ranking/">Ranking</a>
 </nav>
 <main>
-<div class="card"><h2>Progresso 🎯</h2><div class="barra"><div id="bar" style="width:0"></div></div><p id="msg"></p></div>
-<div class="card"><h2>🎒 Equipamento</h2><div id="eq"></div></div>
-<div class="card"><h2>🌊 Condições</h2><div id="cond"></div><p style="font-size:.8rem;color:#888;margin-top:.5rem">Cheque ao vivo na <a href="https://acarolmourad-commits.github.io/asf-previsao/">Previsão</a> e na <a href="https://acarolmourad-commits.github.io/asf-mare/">Maré</a>.</p></div>
-<div class="card"><h2>🛟 Segurança</h2><div id="seg"></div><p style="font-size:.8rem;color:#888;margin-top:.5rem">Revise as regras na <a href="https://acarolmourad-commits.github.io/asf-seguranca/">Segurança ASF</a>.</p>
-<button onclick="reset()" style="margin-top:1rem">↺ Novo dia</button></div>
+<div class="card"><h2>Mochila de surf 🏄‍♀️</h2>
+<div class="prog"><div id="bar" style="width:0"></div></div>
+<div id="itens"></div>
+<div class="completo" id="completo">✅ Tudo pronto! Confira a <a href="https://acarolmourad-commits.github.io/asf-previsao/">previsão</a> e bora pro mar! 🌊</div>
+<div class="addrow"><input id="novo" placeholder="Adicionar item… (ex.: canga)"><button onclick="addItem()">＋</button></div>
+<button class="sec" style="margin-top:1rem" onclick="reset()">↺ Desmarcar tudo</button></div>
+<div class="card"><h2>Antes de sair 🚗</h2><p style="font-size:.9rem">1) Cheque a <a href="https://acarolmourad-commits.github.io/asf-previsao/">previsão</a> e a <a href="https://acarolmourad-commits.github.io/asf-mare/">maré</a> · 2) Avise alguém da <a href="https://acarolmourad-commits.github.io/asf-comunidade/">comunidade</a> onde vai surfar · 3) Salve o <a href="https://acarolmourad-commits.github.io/asf-sos/">ASF SOS</a> nos favoritos do celular.</p></div>
 </main>
 <div class="xp">⭐ XP: <span id="xp">0</span></div>
 <footer>ASF — Associação de Surf Feminino · Feito com 🌊 e 💜 · <a href="https://acarolmourad-commits.github.io/asf-app/">asf-app</a></footer>
 <script>
-const ITENS={eq:['Prancha + leash conferidos','Quilhas e parafina','Wetsuit / lycra UV','Protetor solar zinco','Água e lanche pós-surf'],
-cond:['Vi a previsão de ondas e vento','Confirmei a tábua de marés','Observei o mar 10 min antes de entrar'],
-seg:['Avisei alguém onde vou surfar','Celular/contato de emergência','Conheço as correntes do pico','Alongamento feito']};
-const KEY='asfchecklist';const hoje=new Date().toDateString();
-let dados=JSON.parse(localStorage.getItem(KEY)||'{}');
-if(dados.dia!==hoje)dados={dia:hoje,itens:{}};
 const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
 function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
 document.getElementById('xp').textContent=XP();
-let completo=false;
-Object.entries(ITENS).forEach(([cat,lista])=>{const box=document.getElementById(cat);
- lista.forEach((t,j)=>{const id=cat+j;const l=document.createElement('label');
-  l.innerHTML=`<input type="checkbox" data-id="${id}" ${dados.itens[id]?'checked':''}> ${t}`;
-  box.appendChild(l);});});
-function atualizar(){const all=document.querySelectorAll('input[type=checkbox]');let ok=0;
- all.forEach(c=>{dados.itens[c.dataset.id]=c.checked;if(c.checked)ok++;});
- localStorage.setItem(KEY,JSON.stringify(dados));
- const p=Math.round(ok/all.length*100);document.getElementById('bar').style.width=p+'%';
- document.getElementById('msg').textContent=p===100?'🎉 Checklist completo! +10 XP — boa sessão!':p>=60?'Quase lá! 💪':'';
- if(p===100&&!completo){completo=true;addXP(10);}
- if(p<100)completo=false;}
-function reset(){dados={dia:hoje,itens:{}};localStorage.setItem(KEY,JSON.stringify(dados));document.querySelectorAll('input').forEach(c=>c.checked=false);atualizar();}
-document.querySelectorAll('input[type=checkbox]').forEach(c=>c.onchange=atualizar);atualizar();
+let itens=JSON.parse(localStorage.getItem('asfchecklist')||'null')||['Prancha','Leash','Parafina','Wetsuit / lycra UV','Protetor solar','Toalha','Água (garrafa)','Lanche pós-surf','Boné/chapéu','Chave do carro escondida 😉','Celular carregado (SOS)','Trocas de roupa'];
+let marcados=JSON.parse(localStorage.getItem('asfchecklist-check')||'[]');
+function save(){localStorage.setItem('asfchecklist',JSON.stringify(itens));localStorage.setItem('asfchecklist-check',JSON.stringify(marcados));}
+function render(){
+ const box=document.getElementById('itens');box.innerHTML='';
+ itens.forEach((t,i)=>{const l=document.createElement('label');
+  if(marcados.includes(i))l.classList.add('ok');
+  l.innerHTML=`<input type="checkbox" ${marcados.includes(i)?'checked':''}> ${t}`;
+  l.querySelector('input').onchange=e=>{if(e.target.checked){marcados.push(i);}else{marcados=marcados.filter(x=>x!==i);}save();render();};
+  box.appendChild(l);});
+ const p=itens.length?Math.round(marcados.length/itens.length*100):0;
+ document.getElementById('bar').style.width=p+'%';
+ document.getElementById('completo').style.display=p===100?'block':'none';
+ if(p===100&&!sessionStorage.getItem('asfcheck-xp')){addXP(10);sessionStorage.setItem('asfcheck-xp','1');}
+ if(p<100)sessionStorage.removeItem('asfcheck-xp');
+}
+function addItem(){const v=document.getElementById('novo').value.trim();if(!v)return;itens.push(v);document.getElementById('novo').value='';save();render();}
+function reset(){marcados=[];save();render();}
+render();
 </script>
 </body>
 </html>
