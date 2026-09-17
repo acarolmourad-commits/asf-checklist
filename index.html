@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASF Checklist — Pré-surf perfeito</title>
+<meta name="description" content="Checklist interativo pré-surf: equipamento, condições do mar e segurança. Satélite do app ASF.">
+<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-checklist/">
+<style>body{font-family:system-ui,sans-serif;margin:0;background:#f0fdf4;color:#14532d}header{background:#16a34a;color:#fff;padding:2rem;text-align:center}nav{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:1rem;background:#dcfce7}nav a{color:#15803d;text-decoration:none;font-size:.85rem}main{max-width:640px;margin:2rem auto;padding:0 1rem}.card{background:#fff;border-radius:16px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}label{display:flex;gap:.6rem;align-items:center;padding:.4rem;border-bottom:1px solid #dcfce7}input[type=checkbox]{width:18px;height:18px}.bar{background:#dcfce7;border-radius:9999px;height:16px;overflow:hidden}.bar i{display:block;background:#16a34a;height:100%;transition:width .3s}button{background:#16a34a;color:#fff;border:0;border-radius:9999px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer}footer{text-align:center;padding:2rem;color:#166534}</style>
+</head>
+<body>
+<header><h1>ASF Checklist ✅🌊</h1><p>Nunca mais esqueça o leash em casa</p></header>
+<nav id="net"></nav>
+<main>
+<div class="card"><h2>🎒 Equipamento</h2><div id="g1"></div></div>
+<div class="card"><h2>🌊 Condições</h2><div id="g2"></div></div>
+<div class="card"><h2>🛟 Segurança & Corpo</h2><div id="g3"></div></div>
+<div class="card" style="text-align:center"><h2 id="pct">0%</h2><div class="bar"><i id="bar" style="width:0%"></i></div><p id="msg"></p><button onclick="reset()">Resetar para a próxima sessão</button></div>
+</main>
+<footer>ASF Checklist — satélite do <a href="https://acarolmourad-commits.github.io/asf-app/">app ASF</a> · combine com <a href="https://acarolmourad-commits.github.io/asf-alerta/">Alerta</a> e <a href="https://acarolmourad-commits.github.io/asf-equipamento/">Equipamento</a></footer>
+<script>
+const sites=[["asf-app","App ASF"],["asf-previsao","Previsão"],["asf-praias","Praias"],["asf-mare","Maré"],["asf-alerta","Alerta"],["asf-seguranca","Segurança"],["asf-equipamento","Equipamento"],["asf-treino","Treino"],["asf-apnea","Apneia"],["asf-yoga","Yoga"],["asf-nutricao","Nutrição"],["asf-comunidade","Comunidade"],["asf-quiz","Quiz"],["asf-ranking","Ranking"],["asf-diario","Diário"]];
+document.getElementById('net').innerHTML=sites.map(s=>`<a href="https://acarolmourad-commits.github.io/${s[0]}/">${s[1]}</a>`).join('');
+const G={g1:['Prancha (verificar quilhas e leash)','Parafina adequada à temperatura','Wetsuit / lycra UV','Protetor solar reef-safe','Água e lanche pós-surf','Toalha e roupa seca'],g2:['Conferi a previsão (ASF Previsão)','Vi os alertas da comunidade (ASF Alerta)','Sei a tábua de marés (ASF Maré)','Escolhi o pico certo pro meu nível (ASF Praias)'],g3:['Aquecimento feito (ASF Yoga)','Avisei alguém que vou surfar','Celular carregado (ASF SOS)','Conheço a saída da corrente de retorno']};
+const K='asf-checklist';
+function load(){return JSON.parse(localStorage.getItem(K)||'[]');}
+function render(){const done=load();let total=0,ok=0;
+Object.keys(G).forEach(g=>{document.getElementById(g).innerHTML=G[g].map((item,i)=>{const id=g+'-'+i;total++;if(done.includes(id))ok++;return `<label><input type="checkbox" ${done.includes(id)?'checked':''} onchange="t('${id}')">${item}</label>`;}).join('');});
+const p=Math.round(100*ok/total);document.getElementById('pct').textContent=p+'%';document.getElementById('bar').style.width=p+'%';
+document.getElementById('msg').textContent=p===100?'🚀 Tudo pronto! Bom surf!':p>=70?'Quase lá! 🌊':'Continue marcando...';}
+function t(id){let d=load();d=d.includes(id)?d.filter(x=>x!==id):[...d,id];localStorage.setItem(K,JSON.stringify(d));render();}
+function reset(){localStorage.removeItem(K);render();}
+render();
+</script>
+</body>
+</html>
