@@ -62,5 +62,8 @@ function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById(
 document.getElementById('xp').textContent=XP();
 const G={'🧰 Equipamento':['Prancha ok (sem fissuras)','Leash preso','Parafina aplicada'],'🌊 Condições':['Vi a previsão → ASF Previsão','Bandeira dos salva-vidas checada','Observei o mar 10 min'],'🛟 Segurança':['Aqueci o corpo → ASF Yoga','Avisei alguém na areia','Sei meu limite hoje']};const st={};document.getElementById('ck').innerHTML=Object.entries(G).map(([g,it])=>`<h3 style="color:var(--rosa);margin:.6rem 0 .2rem">${g}</h3>`+it.map(x=>`<label style="display:block;margin:.2rem 0"><input type="checkbox" style="width:auto" onchange="st['${x}']=this.checked"> ${x}</label>`).join('')).join('');window.verificar=()=>{const total=Object.values(G).flat().length;const ok=Object.values(st).filter(Boolean).length;const r=document.getElementById('res');if(ok===total){r.textContent='✅ 100% pronta! Boa sessão 🌊 (+20 XP)';r.style.color='#43a047';addXP(20);}else{r.textContent=`⚠️ Faltam ${total-ok} itens (${Math.round(ok/total*100)}%)`;r.style.color='#f9a825';}};
 </script>
+
+<!-- ASF LGPD footer -->
+<footer style="margin-top:40px;padding:16px;text-align:center;font-size:12px;opacity:.75"><a href="https://acarolmourad-commits.github.io/asf-app/privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> · <a href="https://acarolmourad-commits.github.io/asf-app/cookies.html" target="_blank" rel="noopener">Política de Cookies</a> · <a href="https://acarolmourad-commits.github.io/asf-app/termos-de-uso.html" target="_blank" rel="noopener">Termos de Uso</a> · ASF — Associação de Surf Feminino</footer>
 </body>
 </html>
